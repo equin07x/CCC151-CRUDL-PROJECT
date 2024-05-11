@@ -64,6 +64,9 @@ private slots:
 
             void on_searchcourses_clicked();
 
+            void delete_warning_students();
+            void delete_warning_courses();
+
         private:
     Ui::MainWindow *ui;
     QStandardItemModel *Model;

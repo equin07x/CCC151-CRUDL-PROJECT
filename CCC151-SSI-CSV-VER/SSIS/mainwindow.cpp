@@ -8,6 +8,7 @@
 #include <QItemSelectionModel>
 #include <QFileDialog>
 #include <QTextStream>
+#include <QMessageBox>
 #include <QFile>
 #include <QTextEdit>
 #include <QModelIndex>
@@ -112,6 +113,30 @@ void MainWindow::remove_coursesrows_table()
         QMessageBox::information(this, "Success", "Course deleted successfully.");
     } else {
         QMessageBox::critical(this, "Error", "Failed to delete course.");
+    }
+}
+
+void MainWindow::delete_warning_students()
+{
+    int ret = QMessageBox::warning(this, tr("Delete Item"),
+                                   tr("Are you sure you want to delete student?"),
+                                   QMessageBox::Yes | QMessageBox::No,
+                                   QMessageBox::No);
+    if (ret == QMessageBox::Yes)
+    {
+        remove_studentsrows_table();
+    }
+}
+
+void MainWindow::delete_warning_courses()
+{
+    int ret = QMessageBox::warning(this, tr("Delete Item"),
+                                   tr("Are you sure you want to delete course?"),
+                                   QMessageBox::Yes | QMessageBox::No,
+                                   QMessageBox::No);
+    if (ret == QMessageBox::Yes)
+    {
+        remove_coursesrows_table();
     }
 }
 
@@ -468,17 +493,9 @@ void MainWindow::on_pushButton_3_clicked()
 
 void MainWindow::on_pushButton_clicked()
 {
-    remove_studentsrows_table();
+    delete_warning_students();
     read_Students_csv();
 }
-
-
-void MainWindow::on_pushButton_6_clicked()
-{
-    remove_coursesrows_table();
-    read_Courses_csv();
-}
-
 
 void MainWindow::on_Add_Courses_clicked()
 {
@@ -511,5 +528,12 @@ void MainWindow::on_pushButton_7_clicked()
 void MainWindow::on_searchcourses_clicked()
 {
     search_courses();
+}
+
+
+void MainWindow::on_pushButton_6_clicked()
+{
+    delete_warning_courses();
+    read_Courses_csv();
 }
 
