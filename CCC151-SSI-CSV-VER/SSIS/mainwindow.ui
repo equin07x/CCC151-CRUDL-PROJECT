@@ -7,7 +7,7 @@
     <x>0</x>
     <y>0</y>
     <width>1272</width>
-    <height>687</height>
+    <height>703</height>
    </rect>
   </property>
   <property name="windowTitle">
@@ -62,10 +62,10 @@ background-color: rgb(220, 182, 44);
    <widget class="QPushButton" name="pushButton">
     <property name="geometry">
      <rect>
-      <x>750</x>
+      <x>630</x>
       <y>590</y>
       <width>171</width>
-      <height>51</height>
+      <height>31</height>
      </rect>
     </property>
     <property name="styleSheet">
@@ -367,10 +367,10 @@ color: rgb(255, 170, 32);
    <widget class="QPushButton" name="pushButton_2">
     <property name="geometry">
      <rect>
-      <x>30</x>
+      <x>110</x>
       <y>590</y>
-      <width>171</width>
-      <height>51</height>
+      <width>181</width>
+      <height>31</height>
      </rect>
     </property>
     <property name="styleSheet">
@@ -392,10 +392,10 @@ background-color: rgb(220, 182, 44);
    <widget class="QPushButton" name="pushButton_3">
     <property name="geometry">
      <rect>
-      <x>210</x>
-      <y>590</y>
-      <width>171</width>
-      <height>51</height>
+      <x>110</x>
+      <y>630</y>
+      <width>181</width>
+      <height>31</height>
      </rect>
     </property>
     <property name="styleSheet">
@@ -551,10 +551,10 @@ background-color: rgb(220, 182, 44);
    <widget class="QPushButton" name="pushButton_6">
     <property name="geometry">
      <rect>
-      <x>570</x>
-      <y>590</y>
+      <x>630</x>
+      <y>630</y>
       <width>171</width>
-      <height>51</height>
+      <height>31</height>
      </rect>
     </property>
     <property name="styleSheet">
@@ -576,10 +576,10 @@ background-color: rgb(220, 182, 44);
    <widget class="QPushButton" name="pushButton_7">
     <property name="geometry">
      <rect>
-      <x>390</x>
+      <x>370</x>
       <y>590</y>
       <width>171</width>
-      <height>51</height>
+      <height>31</height>
      </rect>
     </property>
     <property name="styleSheet">
@@ -595,7 +595,7 @@ background-color: rgb(220, 182, 44);
 }</string>
     </property>
     <property name="text">
-     <string>Edit</string>
+     <string>Edit Student</string>
     </property>
    </widget>
    <widget class="QLineEdit" name="searchLineEdit">
@@ -668,6 +668,31 @@ background-color: rgb(220, 182, 44);
     </property>
     <property name="text">
      <string>Search Courses</string>
+    </property>
+   </widget>
+   <widget class="QPushButton" name="pushButton_8">
+    <property name="geometry">
+     <rect>
+      <x>370</x>
+      <y>630</y>
+      <width>171</width>
+      <height>31</height>
+     </rect>
+    </property>
+    <property name="styleSheet">
+     <string notr="true">QPushButton
+{
+font: 900 8pt &quot;MS Reference Sans Serif&quot;rgb(255, 201, 8);
+color: rgb(255, 170, 32);
+}
+QPushButton:Hover
+{
+color:  rgb(35, 35, 35);
+background-color: rgb(220, 182, 44);
+}</string>
+    </property>
+    <property name="text">
+     <string>Edit Course</string>
     </property>
    </widget>
   </widget>

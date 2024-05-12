@@ -285,7 +285,6 @@ void MainWindow::search()
 
 void MainWindow::search_courses()
 {
-
     QString searchedtext = ui->searchLineEdit->text();
     ui->tableView->setSelectionMode(QAbstractItemView::SingleSelection);
     ui->tableView->setSelectionBehavior(QAbstractItemView::SelectRows);
@@ -460,8 +459,11 @@ void MainWindow::read_Courses_csv()
 void MainWindow::show_student_items()
 {
     QModelIndexList selectedRows = ui->tableView->selectionModel()->selectedRows();
-
-    if(selectedRows.size() == 1) {
+    if (selectedRows.size()==0) {
+        QMessageBox::warning(this, "Warning", "No Student selected.");
+        return;
+    }
+    else if(selectedRows.size() == 1) {
 
         QModelIndex index = selectedRows.at(0);
         QString lastname = Model->data(Model->index(index.row(), 0)).toString();
@@ -474,8 +476,52 @@ void MainWindow::show_student_items()
          ui->MiddleName->setText(middlename);
          ui->IDNumber->setText(id_number);
     }
-    qDebug() << "Selected Student is now available for editing.";
 }
+
+
+void MainWindow::show_courses_items()
+{
+    QModelIndexList selectedRows = ui->tableView->selectionModel()->selectedRows();
+    if (selectedRows.size()==0) {
+        QMessageBox::warning(this, "Warning", "No course selected.");
+        return;
+    }
+    else if(selectedRows.size() == 1) {
+
+        QModelIndex index = selectedRows.at(0);
+        QString coursecode = Model->data(Model->index(index.row(), 0)).toString();
+        QString coursename = Model->data(Model->index(index.row(), 1)).toString();
+
+        ui->CourseCode->setText(coursecode);
+        ui->CourseName->setText(coursename);
+      ;
+    }
+}
+
+void MainWindow::edit_student()
+{
+    int ret = QMessageBox::warning(this, tr("Delete Item"),
+                                   tr("Are you sure you want to edit this student?"),
+                                   QMessageBox::Yes | QMessageBox::No,
+                                   QMessageBox::No);
+    if (ret == QMessageBox::Yes)
+    {
+        show_student_items();
+    }
+}
+
+void MainWindow::edit_course()
+{
+    int ret = QMessageBox::warning(this, tr("Delete Item"),
+                                   tr("Are you sure you want to edit this course?"),
+                                   QMessageBox::Yes | QMessageBox::No,
+                                   QMessageBox::No);
+    if (ret == QMessageBox::Yes)
+    {
+        show_courses_items();
+    }
+}
+
 
 void MainWindow::on_pushButton_2_clicked()
 {
@@ -520,8 +566,8 @@ void MainWindow::on_searchButton_clicked()
 
 void MainWindow::on_pushButton_7_clicked()
 {
-    show_student_items();
-      qDebug() << "Selected Student is now available for editing.";
+    edit_student();
+    read_Students_csv();
 }
 
 
@@ -534,6 +580,13 @@ void MainWindow::on_searchcourses_clicked()
 void MainWindow::on_pushButton_6_clicked()
 {
     delete_warning_courses();
+    read_Courses_csv();
+}
+
+
+void MainWindow::on_pushButton_8_clicked()
+{
+    edit_course();
     read_Courses_csv();
 }
 

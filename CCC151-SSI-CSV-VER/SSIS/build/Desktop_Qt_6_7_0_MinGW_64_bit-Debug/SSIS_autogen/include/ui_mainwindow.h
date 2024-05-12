@@ -58,6 +58,7 @@ public:
     QLineEdit *searchLineEdit;
     QPushButton *searchButton;
     QPushButton *searchcourses;
+    QPushButton *pushButton_8;
     QMenuBar *menubar;
     QStatusBar *statusbar;
 
@@ -65,7 +66,7 @@ public:
     {
         if (MainWindow->objectName().isEmpty())
             MainWindow->setObjectName("MainWindow");
-        MainWindow->resize(1272, 687);
+        MainWindow->resize(1272, 703);
         MainWindow->setStyleSheet(QString::fromUtf8("background-color: rgb(34, 34, 34);"));
         centralwidget = new QWidget(MainWindow);
         centralwidget->setObjectName("centralwidget");
@@ -92,7 +93,7 @@ public:
 "}"));
         pushButton = new QPushButton(centralwidget);
         pushButton->setObjectName("pushButton");
-        pushButton->setGeometry(QRect(750, 590, 171, 51));
+        pushButton->setGeometry(QRect(630, 590, 171, 31));
         pushButton->setStyleSheet(QString::fromUtf8("QPushButton\n"
 "{\n"
 "font: 900 8pt \"MS Reference Sans Serif\"rgb(255, 201, 8);\n"
@@ -238,7 +239,7 @@ public:
 "}"));
         pushButton_2 = new QPushButton(centralwidget);
         pushButton_2->setObjectName("pushButton_2");
-        pushButton_2->setGeometry(QRect(30, 590, 171, 51));
+        pushButton_2->setGeometry(QRect(110, 590, 181, 31));
         pushButton_2->setStyleSheet(QString::fromUtf8("QPushButton\n"
 "{\n"
 "font: 900 8pt \"MS Reference Sans Serif\"rgb(255, 201, 8);\n"
@@ -251,7 +252,7 @@ public:
 "}"));
         pushButton_3 = new QPushButton(centralwidget);
         pushButton_3->setObjectName("pushButton_3");
-        pushButton_3->setGeometry(QRect(210, 590, 171, 51));
+        pushButton_3->setGeometry(QRect(110, 630, 181, 31));
         pushButton_3->setStyleSheet(QString::fromUtf8("QPushButton\n"
 "{\n"
 "font: 900 8pt \"MS Reference Sans Serif\"rgb(255, 201, 8);\n"
@@ -332,7 +333,7 @@ public:
 "}"));
         pushButton_6 = new QPushButton(centralwidget);
         pushButton_6->setObjectName("pushButton_6");
-        pushButton_6->setGeometry(QRect(570, 590, 171, 51));
+        pushButton_6->setGeometry(QRect(630, 630, 171, 31));
         pushButton_6->setStyleSheet(QString::fromUtf8("QPushButton\n"
 "{\n"
 "font: 900 8pt \"MS Reference Sans Serif\"rgb(255, 201, 8);\n"
@@ -345,7 +346,7 @@ public:
 "}"));
         pushButton_7 = new QPushButton(centralwidget);
         pushButton_7->setObjectName("pushButton_7");
-        pushButton_7->setGeometry(QRect(390, 590, 171, 51));
+        pushButton_7->setGeometry(QRect(370, 590, 171, 31));
         pushButton_7->setStyleSheet(QString::fromUtf8("QPushButton\n"
 "{\n"
 "font: 900 8pt \"MS Reference Sans Serif\"rgb(255, 201, 8);\n"
@@ -395,6 +396,19 @@ public:
 "color:  rgb(35, 35, 35);\n"
 "background-color: rgb(220, 182, 44);\n"
 "}"));
+        pushButton_8 = new QPushButton(centralwidget);
+        pushButton_8->setObjectName("pushButton_8");
+        pushButton_8->setGeometry(QRect(370, 630, 171, 31));
+        pushButton_8->setStyleSheet(QString::fromUtf8("QPushButton\n"
+"{\n"
+"font: 900 8pt \"MS Reference Sans Serif\"rgb(255, 201, 8);\n"
+"color: rgb(255, 170, 32);\n"
+"}\n"
+"QPushButton:Hover\n"
+"{\n"
+"color:  rgb(35, 35, 35);\n"
+"background-color: rgb(220, 182, 44);\n"
+"}"));
         MainWindow->setCentralWidget(centralwidget);
         menubar = new QMenuBar(MainWindow);
         menubar->setObjectName("menubar");
@@ -428,9 +442,10 @@ public:
         label_9->setText(QCoreApplication::translate("MainWindow", "Course Name", nullptr));
         Add_Courses->setText(QCoreApplication::translate("MainWindow", "Add Course", nullptr));
         pushButton_6->setText(QCoreApplication::translate("MainWindow", "Delete Courses", nullptr));
-        pushButton_7->setText(QCoreApplication::translate("MainWindow", "Edit", nullptr));
+        pushButton_7->setText(QCoreApplication::translate("MainWindow", "Edit Student", nullptr));
         searchButton->setText(QCoreApplication::translate("MainWindow", "Search Student", nullptr));
         searchcourses->setText(QCoreApplication::translate("MainWindow", "Search Courses", nullptr));
+        pushButton_8->setText(QCoreApplication::translate("MainWindow", "Edit Course", nullptr));
     } // retranslateUi
 
 };

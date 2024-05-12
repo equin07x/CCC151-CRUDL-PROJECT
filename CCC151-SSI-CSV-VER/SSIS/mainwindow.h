@@ -59,6 +59,7 @@ private slots:
             void on_pushButton_7_clicked();
 
             void show_student_items();
+              void edit_student();
 
             void search_courses();
 
@@ -66,6 +67,11 @@ private slots:
 
             void delete_warning_students();
             void delete_warning_courses();
+
+            void show_courses_items();
+              void edit_course();
+
+            void on_pushButton_8_clicked();
 
         private:
     Ui::MainWindow *ui;
