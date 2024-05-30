@@ -369,8 +369,7 @@ void MainWindow::openStudentsFile()
 
 void MainWindow::updateStudentsFile(const QString &coursesFilePath)
 {
-    // Open the student CSV file for reading and writing
-    QString studentsFilePath = "C:/Users/Admin/Desktop/COLLEGE/CCC151-SSI-CSV-VER/CSV_files/Students.csv"; // Replace with the actual path to your student CSV file
+    QString studentsFilePath = "C:/Users/Admin/Desktop/COLLEGE/CCC151-SSI-CSV-VER/CSV_files/Students.csv";
     QFile studentsFile(studentsFilePath);
     if (!studentsFile.open(QIODevice::ReadWrite | QIODevice::Text)) {
         QMessageBox::critical(this, "Error", "Failed to open student CSV file for updating.");
@@ -410,7 +409,7 @@ void MainWindow::updateStudentsFile(const QString &coursesFilePath)
         updatedStudentsData.append(parts.join(','));
     }
 
-    // Write the updated student data back to the student CSV file
+
     studentsFile.resize(0); // Clear the file contents
     QTextStream out(&studentsFile);
     for (const QString &updatedLine : updatedStudentsData) {
@@ -523,6 +522,76 @@ void MainWindow::edit_course()
 }
 
 
+void MainWindow::saveEditToCSV(int row)
+{
+    QFile file("C:/Users/Admin/Desktop/COLLEGE/CCC151-SSI-CSV-VER/CSV_files/Students.csv");
+    if (!file.open(QIODevice::WriteOnly | QIODevice::Append | QIODevice::Text)) {
+        QMessageBox::warning(this, "Warning", "Cannot open file for writing.");
+        return;
+    }
+
+    QTextStream out(&file);
+    QStringList rowContents;
+    for (int col = 0; col < Model->columnCount(); ++col) {
+        rowContents << Model->data(Model->index(row, col)).toString();
+    }
+    out << rowContents.join(",") << "\n";
+    file.close();
+}
+
+
+void MainWindow::saveEditCourseToCSV(int row)
+{
+    QFile file("C:/Users/Admin/Desktop/COLLEGE/CCC151-SSI-CSV-VER/CSV_files/Courses.csv");
+    if (!file.open(QIODevice::WriteOnly | QIODevice::Append | QIODevice::Text)) {
+        QMessageBox::warning(this, "Warning", "Cannot open file for writing.");
+        return;
+    }
+
+    QTextStream out(&file);
+    QStringList rowContents;
+    for (int col = 0; col < Model->columnCount(); ++col) {
+        rowContents << Model->data(Model->index(row, col)).toString();
+    }
+    out << rowContents.join(",") << "\n";
+    file.close();
+}
+
+void MainWindow::onSaveButtonClicked()
+{
+    QModelIndex currentIndex = ui->tableView->currentIndex();
+    if (currentIndex.isValid()) {
+        int row = currentIndex.row();
+        Model->setData(Model->index(row, 0), ui->SurName->text());
+        Model->setData(Model->index(row, 1), ui->FirstName->text());
+        Model->setData(Model->index(row, 2), ui->MiddleName->text());
+        Model->setData(Model->index(row, 3), ui->IDNumber->text());
+        Model->setData(Model->index(row, 4), ui->YearLevel->currentText());
+        Model->setData(Model->index(row, 5), ui->Gender->currentText());
+        Model->setData(Model->index(row, 6), ui->CourseCode_2->currentText());
+        saveEditToCSV(row);
+    }
+    else
+    {
+        QMessageBox::warning(this, "Warning", "Please select a row in the table.");
+    }
+}
+
+void MainWindow::onSaveEditClicked()
+{
+    QModelIndex currentIndex = ui->tableView->currentIndex();
+    if (currentIndex.isValid()) {
+        int row = currentIndex.row();
+        Model->setData(Model->index(row, 0), ui->CourseCode->text());
+        Model->setData(Model->index(row, 1), ui->CourseName->text());
+        saveEditCourseToCSV(row);
+    }
+    else
+    {
+        QMessageBox::warning(this, "Warning", "Please select a row in the table.");
+    }
+}
+
 void MainWindow::on_pushButton_2_clicked()
 {
      openStudentsFile();
@@ -588,5 +657,17 @@ void MainWindow::on_pushButton_8_clicked()
 {
     edit_course();
     read_Courses_csv();
+}
+
+
+void MainWindow::on_Updatestudent_clicked()
+{
+    onSaveButtonClicked();
+}
+
+
+void MainWindow::on_Updatecourses_clicked()
+{
+    onSaveEditClicked();
 }
 

@@ -73,6 +73,16 @@ private slots:
 
             void on_pushButton_8_clicked();
 
+            void saveEditToCSV(int row);
+
+            void onSaveButtonClicked();
+            void on_Updatestudent_clicked();
+
+            void saveEditCourseToCSV(int row);
+            void onSaveEditClicked();
+
+            void on_Updatecourses_clicked();
+
         private:
     Ui::MainWindow *ui;
     QStandardItemModel *Model;

@@ -59,6 +59,8 @@ public:
     QPushButton *searchButton;
     QPushButton *searchcourses;
     QPushButton *pushButton_8;
+    QPushButton *Updatestudent;
+    QPushButton *Updatecourses;
     QMenuBar *menubar;
     QStatusBar *statusbar;
 
@@ -265,7 +267,7 @@ public:
 "}"));
         Add_Students = new QPushButton(centralwidget);
         Add_Students->setObjectName("Add_Students");
-        Add_Students->setGeometry(QRect(1090, 430, 161, 31));
+        Add_Students->setGeometry(QRect(1120, 430, 131, 31));
         Add_Students->setStyleSheet(QString::fromUtf8("QPushButton\n"
 "{\n"
 "font: 900 8pt \"MS Reference Sans Serif\"rgb(255, 201, 8);\n"
@@ -320,7 +322,7 @@ public:
 "}"));
         Add_Courses = new QPushButton(centralwidget);
         Add_Courses->setObjectName("Add_Courses");
-        Add_Courses->setGeometry(QRect(1090, 600, 161, 31));
+        Add_Courses->setGeometry(QRect(1120, 600, 131, 31));
         Add_Courses->setStyleSheet(QString::fromUtf8("QPushButton\n"
 "{\n"
 "font: 900 8pt \"MS Reference Sans Serif\"rgb(255, 201, 8);\n"
@@ -409,6 +411,32 @@ public:
 "color:  rgb(35, 35, 35);\n"
 "background-color: rgb(220, 182, 44);\n"
 "}"));
+        Updatestudent = new QPushButton(centralwidget);
+        Updatestudent->setObjectName("Updatestudent");
+        Updatestudent->setGeometry(QRect(970, 430, 131, 31));
+        Updatestudent->setStyleSheet(QString::fromUtf8("QPushButton\n"
+"{\n"
+"font: 900 8pt \"MS Reference Sans Serif\"rgb(255, 201, 8);\n"
+"color: rgb(255, 170, 32);\n"
+"}\n"
+"QPushButton:Hover\n"
+"{\n"
+"color:  rgb(35, 35, 35);\n"
+"background-color: rgb(220, 182, 44);\n"
+"}"));
+        Updatecourses = new QPushButton(centralwidget);
+        Updatecourses->setObjectName("Updatecourses");
+        Updatecourses->setGeometry(QRect(970, 600, 131, 31));
+        Updatecourses->setStyleSheet(QString::fromUtf8("QPushButton\n"
+"{\n"
+"font: 900 8pt \"MS Reference Sans Serif\"rgb(255, 201, 8);\n"
+"color: rgb(255, 170, 32);\n"
+"}\n"
+"QPushButton:Hover\n"
+"{\n"
+"color:  rgb(35, 35, 35);\n"
+"background-color: rgb(220, 182, 44);\n"
+"}"));
         MainWindow->setCentralWidget(centralwidget);
         menubar = new QMenuBar(MainWindow);
         menubar->setObjectName("menubar");
@@ -446,6 +474,8 @@ public:
         searchButton->setText(QCoreApplication::translate("MainWindow", "Search Student", nullptr));
         searchcourses->setText(QCoreApplication::translate("MainWindow", "Search Courses", nullptr));
         pushButton_8->setText(QCoreApplication::translate("MainWindow", "Edit Course", nullptr));
+        Updatestudent->setText(QCoreApplication::translate("MainWindow", "Update Student", nullptr));
+        Updatecourses->setText(QCoreApplication::translate("MainWindow", "Update Course", nullptr));
     } // retranslateUi
 
 };
